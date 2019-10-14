@@ -20,3 +20,14 @@ apt install bc
 wget https://dl.grafana.com/oss/release/grafana_6.4.2_amd64.deb
 dpkg -i grafana_6.4.2_amd64.deb
 systemctl start grafana-server
+
+
+while true; 
+do 
+    INI=$( date +%s -d '1 minute ago'  )
+    END=$( date +%s )
+   ./gera.sh ${INI}  ${END}  60 host-1 'uso de cpu'  99 2;
+   ./gera.sh ${INI}  ${END}  60 host-2 'uso de cpu'  99 2;  
+   ./gera.sh ${INI}  ${END}  60 host-3 'uso de cpu'  99 2; 
+   sleep 60 ;
+done
